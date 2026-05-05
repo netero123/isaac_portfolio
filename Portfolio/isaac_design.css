@@ -2,49 +2,78 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: monospace;
+}
+
+/* COLORS */
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #38bdf8;
+    --text: #e2e8f0;
 }
 
 body {
-    background: #ccc;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #020617;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 15px 40px;
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text);
+    position: relative;
+}
+
+/* NAV HOVER */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
 }
 
 /* CONTAINER */
 .container {
     width: 900px;
-    margin: 20px auto;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: flex-end;
-    gap: 30px;
-    padding: 15px 40px;
-    font-size: 14px;
-}
-
-nav a {
-    text-decoration: none;
-    color: black;
+    margin: 100px auto 20px;
+    background: var(--card);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 /* HERO */
 .hero {
     display: flex;
     align-items: center;
-    padding: 40px;
+    padding: 60px 40px;
     gap: 40px;
 }
 
-/* PROFILE IMAGE */
 .profile {
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    border: 20px solid #333;
+    border: 8px solid var(--accent);
     overflow: hidden;
 }
 
@@ -54,136 +83,109 @@ nav a {
     object-fit: cover;
 }
 
-/* HERO TEXT */
-.hero-text h1 {
-    font-size: 28px;
-}
-
-.hero-text p {
-    margin-top: 5px;
-}
-
 /* TAGLINE */
 .tagline {
-    padding: 15px;
     text-align: center;
-    margin-top: 20px;
+    padding: 20px;
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: var(--accent);
+    margin: 10px auto;
 }
 
 /* SECTION */
 .section {
-    padding: 25px 40px;
+    padding: 50px 40px;
 }
 
 .section-title {
-    border-top: 2px solid black;
-    margin-bottom: 10px;
-    font-weight: bold;
+    border-top: 2px solid var(--accent);
+    margin-bottom: 15px;
 }
 
-/* BOX */
+/* BOXES */
+.box ul {
+    margin-top: 10px;
+}
+ul {
+    margin-left: 20px;
+    padding-left: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+}
 .box {
-    background: #cfcfcf;
-    border: 1px solid black;
+    background: #334155;
     padding: 15px;
+    border-radius: 10px;
 }
 
-/* CARD */
 .card {
-    background: #444;
-    color: white;
+    background: #020617;
     padding: 15px;
-    width: 250px;
+    border-radius: 10px;
 }
 
-.card ul {
-    margin-left: 15px;
-}
-
-/* EXPERIENCE */
-.experience {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* CONTACT */
-.contact {
-    padding: 20px 40px;
-}
-
-.contact p {
-    margin: 5px 0;
-}
-
-.icon {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.contact a {
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: none;
-    color: blue;
-}
-
-/* GAME SECTION */
+/* GAME */
 .game-section {
     text-align: center;
 }
 
-.game-title {
-    font-size: 14px;
-    color: #a67a00;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-/* GAME BOX */
 .game-box {
     width: 250px;
     padding: 20px;
-    background: #e0e0e0;
-    border: 2px solid #555;
+    background: #334155;
     border-radius: 10px;
     margin: 20px auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
     transition: 0.3s;
 }
 
 .game-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
 }
 
-/* IMAGE */
 .game-img {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
-/* BUTTON */
 .game-btn {
     display: inline-block;
     padding: 10px 15px;
-    background: #333;
-    color: white;
+    background: var(--accent);
+    color: black;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
-.game-btn:hover {
-    background: #555;
+/* CONTACT */
+.icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.contact {
+    padding: 30px 40px;
+}
+
+.contact a {
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--accent);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid var(--accent);
+    margin-top: 20px;
 }
 
 /* SMOOTH SCROLL */
